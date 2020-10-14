@@ -1,0 +1,315 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{listings}
+
+\begin{document}
+
+
+\title{Data Analysis - COVID-19}
+\author{Aryan Garg}
+\date{\today}
+
+\maketitle
+\newpage
+\begin{abstract}
+
+    This report mainly focuses on determining how is India coping up with the pandemic and tries to explore various possibilities if certain actions were undertaken or not, by mathematically analyzing the statistics provided by a volunteer-driven, crowd-sourced database for COVID-19 patient tracing. The report keeps the country's economy and geographical state in mind to predict how India is faring as compared to other nations and also raises a few questions for medical sciences. 
+    The study uses purely mathematical reasoning and conjectures are explicitly mentioned. The assumptions taken are also justified or proved analytically wherever they are brought up. 
+    We also look at an interesting case-study at the end. We use a point-based system to determine whether H1N1 or COVID-19 is more deadly by weighing the official statistics released till now with the technological and medical advancements in time till that year and the time of response to the virus by the world in both cases to get a fair and true estimate. 
+    \newline
+    This study is broad in general and aims to make practical predictions and estimates. 
+    
+\end{abstract}
+
+\newpage
+
+\begin{section}{Introduction}
+
+\begin{quote}
+  "If life were predictable it would cease to be life, and be without flavor."
+  \begin{flushright}
+    \footnotesize{--Eleanor Roosevelt}
+  \end{flushright}
+\end{quote}
+
+With that in mind, we begin our journey by predicting one of the most pivotal questions which determines if a country will revive soon enough or not, and that is, increasingly better recovery rates. We draw inferences and observations from the plots of the data points and try to reach a conclusion to validate or invalidate our proposed hypothesis. We also compare India with some countries who managed to control the infection spread and decrease the ever-growing cases. We assess if India is on the same path as them and where exactly if it is.
+\newline
+\newline
+Then we assess the current situation rather than the cumulative total stats in detail by observing different parameters and try to predict which age-groups are highly affected and which areas are across the country are more likely to be harder hit. Population statistics aren't up-to date but the variance in percentage is assumed to be fairly low and is a good estimate for mathematical computation. We also discuss India's economy briefly.
+\newline
+\newline
+Then we answer whether this is the deadliest epidemic that the human race has faced or not. We compare it with one of the most deadly viruses ever known, the H1N1 virus. And then conclude with our observations, conclusions and hypothesis' results (conclusive or inconclusive).
+\end{section}
+
+\newpage
+% Talks about total cases
+\begin{section}{Better Recovery Rates?}
+    \begin{subsection}{Overall Cases}
+    Now let's begin by looking at the total cases in India date-wise.
+    \newline
+    \newline
+    
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale = 0.68]{Total_Confirmed_Cases_India.png}
+        \caption{Total Confirmed Cases from 30th January to 8th June}
+        \label{fig:Figure 1}
+    \end{figure}
+    
+    \texttt{Observation: Total cases are rising exponentially.}
+    \newline
+    \newline
+    \end{subsection}
+       \newpage
+    \begin{subsection}{Total Deceased Count}
+    Let's look at the actual and logarithmic plots (same as above):
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale = 0.68]{Total_Deceased_India.png}
+        \caption{Total Deceased from 30th January to 8th June}
+        \label{fig:Figure 2}
+    \end{figure}
+    \texttt{Observation: Total deceased are also rising exponentially. But somewhat at a slower rate than total cases}
+    \newline 
+    \newline
+    \end{subsection}
+    \begin{subsection}{The Hypothesis}
+    Q: But how slow or what's the rate between the two? 
+    \newline A: We'll plot a timeline of total deceased per 100 cases to estimate that.
+    \newline
+    \newpage
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale = 0.75]{Timeline_DeathsPerHundred.png}
+        \caption{Timeline of Deaths per 100 cases:}
+        \label{fig:Figure 3}
+    \end{figure}
+
+ 
+    \texttt{Observation 1: To say that the infection spread is slowing would be wrong by looking solely at Figure 3 ( Deceased / 100 cases ) because total confirmed cases are rising exponentially, but nonetheless, slower than some other countries like Brazil, USA when they were around the same cases as India. \newline\newline Observation 2: The lock-down has certainly slowed the rate of cases in India and hence the deceased per 100 rates have stabilized. But, again, this can't be totally true because of inefficient testing and reporting in India. \newline}
+    \newline
+    \textbf{Hypothesis :\newline}
+    \textsl{India has better recovery rates which implies India is coping up with the virus.}
+    \newline\textbf{Reasoning:} The hypothesis is based on the above 2 observations as observation 1 clearly states that cases are NOT slowing down while observation 2 states that the deceased per hundred has somewhat stabilized. So, to achieve the net stabilization of deceased/100, when the denominator is rising exponentially (see formula below),
+    \begin{equation}
+        \textsl{Deceased/100(on that date) = Total Deaths/Cases(till that date)}  * 100\newline
+    \end{equation} recovery rates must also rise exponentially.
+    \newline\newline
+    But before looking at recovery stats a few questions that come to mind after seeing the 3 figures:
+    \newline\newline
+    \textsl{Q1 : Could there be a huge spike again? Just like there was at 10th March, 25th March, 5th April because the lock-down is lifted again and maybe the virus has evolved due to the new asymptomatic cases? \newline\newline A: Yes, there are high chances because India is still on the rise and the lock-down has been eased. \newline\newline Q2: The rates for total deceased/100 have stabilized. Are people naturally developing immunity against the virus? Or people who are getting infected more than once are also included in the data who have some antibodies which are able to cope up with the virus? (A question for medical sciences)\newline}
+    \end{subsection}
+    \begin{subsection}{Evidence: For or Against?}
+    Now let's analyse the recovery statistics to give a concrete statement for or against the hypothesis!
+
+     \begin{figure}[h]
+        \centering
+        \includegraphics[scale = 0.52]{Total_Recovered_India.png}
+        \caption{Timeline of Total Recovered}
+        \label{fig:Figure 4}
+    \end{figure}
+   \newpage
+   This is a good indication for our hypothesis but certainly doesn't prove anything yet. Let's look at Recovered per hundred cases:\newline
+   \begin{figure}[h]
+        \centering
+        \includegraphics[scale = 0.72]{Timeline_recoveredPerHundred.png}
+        \caption{Timeline of Total Recovered per 100 cases}
+        \label{fig:Figure 5}
+    \end{figure}
+    \newline
+    So our hypothesis could be true! \newline\newline
+    \textbf{Reasoning:\newline}
+    Deaths per hundred have stabilized while the number of recovered patients in the same time frame are continuously rising. The total recovered timeline (Figure 4) also supports our initial reasoning of exponential recovery. So, far all the evidence is in support. 
+    \newline
+    \newline
+    To get a yet better understanding, let's look at all the three stats together in the same plot and also the per hundred (percentage) plots.
+    \end{subsection}\newpage
+    \begin{subsection}{Conclusion of the Hypothesis}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale = 0.55]{All_stats_together.png}
+        \caption{Total cases, deceased and recovered}
+        \label{fig:Figure 6}
+    \end{figure}
+    \texttt{Observation 1: The cases are rising way faster than recovery and the total deaths have started rising slowly but it's a significant change.\newline\newline Observation 2: There appears to be a slight plateau in the recovered per 100 cases plot\newline}
+    \newline
+    \textbf{Conclusion:}\newline
+    For now, our hypothesis holds true in all its might, if we use any predictive, mathematical model. But if the trends stay the same and based on the two observations above(especially observation 2 - if the plateau continues); the number of cases, which are rising quicker, may at a point, outweigh the effects of recovery rates and the death rate might start catching up-to the recovery rate due to the lack of medical facilities in the country. In that case the hypothesis fails due to non-mathematical reasons.\newline\newline Also, India has not reached it's peak yet like some other countries have. \textbf{So, assuming the hypothesis is true, where is India on the path of revival? How much time will India take?\newline\newline}
+    \end{subsection}
+    \begin{subsection}{The Path of Revival and Recovery}
+    % Yahan par ML plots
+        \textbf{Create plots... compare India and Switzerland/Japan\newline}
+        \textsl{Not Completed\newline}
+        \textbf{Can overall stats give us the true picture and minute details as to who are at risk or not? So let's analyze the stats at a smaller level. \newline}
+    \end{subsection}
+
+\end{section}
+\newpage
+\begin{section}{Statistical Analysis at a Smaller Scale}
+\begin{subsection}{Daily Stats}
+    Before we dive into smaller regions in the country, let's look at the daily new cases, deaths and recovered cases.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale = 0.50]{Daily_stats.png}
+        \caption{Daily Stats}
+        \label{fig:Figure 6}
+    \end{figure}
+    
+    Some noteworthy averages from this data:\newline
+    
+    \begin{tabular}{ | c | c | }
+    \hline
+     Number of new recovered cases per one new death & 17.318175738932727 \\
+     \hline
+     Number of new recovered cases per new case & 0.4867585641735051 \\
+     \hline
+     Number of new deaths per new case & 0.02810680359821217 \\
+     \hline
+    \end{tabular}
+   \newline
+   \newline
+   Is this on average the same? Let's look at the same parameters but at the state-level. 
+   \end{subsection}
+   \newline
+   \newpage
+
+   \begin{subsection}{State-wise Stat Plots}
+   
+    \begin{figure}[h]
+
+    \begin{subfigure}{1.1\textwidth}
+    \includegraphics[width=1\linewidth, height=4cm]{State_wise_total.png} 
+    \caption{State-wise total cases}
+    \label{fig:Figure 7}
+    \end{subfigure}
+    
+    \begin{subfigure}{1.1\textwidth}
+    \includegraphics[width=1\linewidth, height=4cm]{State_wise_deceases.png}
+    \caption{State-wise Total deceased}
+    \label{fig:Figure 8}
+    \end{subfigure}
+    
+    \begin{subfigure}{1.1\textwidth}
+    \includegraphics[width=0.9\linewidth, height=4cm]{State_wise_recovered.png}
+    \caption{State-wise Total recovered}
+    \label{fig:Figure 9}
+    \end{subfigure}
+   
+   \caption{All stats: state-wise}
+   \label{fig:Figure 10}
+    
+    \end{figure}
+    \end{subsection}
+    \newpage
+    \begin{subsection}{Age-wise Observation}
+    \begin{center}
+    \begin{tabular}{ |c|c|c|c|c| } 
+     \hline
+     States & Total Pop.(2019 data) & Pct 0-14yrs & Pct 15-59yrs & Pct$>$60yrs \\
+     \hline
+     Uttar Pradesh & 237,882,725 & 30.2\% & 62.8\% & 7.0\%  \\ 
+     Bihar & 124,799,926 & 35.0\% & 58.4\% & 6.6\%  \\
+     Maharashtra & 123,144,223 & 25.1\% & 65.6\% & 9.3\%  \\
+     West Bengal & 99,609,303 & 23.7\% & 67.4\% & 9.0\%  \\
+     
+     Madhya Pradesh & 85,358,965 & 30.1\% & 62.7\% & 7.2\%  \\
+     
+     Rajasthan & 81,032,689 & 30.1\% & 62.4\% & 7.5\%  \\
+     
+     Tamil Nadu & 77,841,267 & 21.6\% & 67.9\% & 10.5\%  \\
+     
+     Karnataka & 67,562,686 & 24.3\% & 67.4\% & 8.3\%  \\
+     
+     Gujarat & 63,872,399 & 26.1\% & 65.3\% & 8.6\%  \\
+     
+     Delhi & 18,710,922 & 25.0\% & 68.1\% & 6.9\%  \\
+     \hline
+    \end{tabular}
+    \end{center}
+
+    \textit{---$>$ Assuming one in five hundred gets infected:\newline}
+    [\newline
+    \texttt{Q. Why this assumption?\newline}
+    \newline
+    \texttt{A. Population of India in the above mentioned states(populated cities with population density$>$7000 per sq. Km) / Total cases in these states\newline}
+    ]
+    
+    It is quite evident that:\newline 
+    \begin{equation}
+        Pct[(0-14yrs) + (>60yrs)]*pop.\, of\, that\, state/500 = tot.\, cases\, in\, state  \\
+    \end{equation}
+    \newline
+    \textbf{Implication:} Children and elderly are at a higher risk.
+    \newline\newline
+    \begin{lstlisting}
+'''Proof by Code'''
+pop_maha = 123144223
+pct_children_maha = 25.1
+pct_elders_maha = 9.3
+
+LHS = ((pct_children_maha+pct_elders_maha)/100)*pop_maha/500
+RHS = total_cases_st_wise[-17] # Maharashtra's index in dataset
+
+print("Our assumption and calculation ->",LHS)
+print('Real data available to us      ->',RHS)
+    \end{lstlisting}
+    \textbf{Output:}\newline
+    Our assumption and calculation -$>$ 84723.22542400002\newline
+Real data available to us      -$>$88529\newline\newline
+
+This somewhat proves our implied statement. The data is bound to vary to a greater extent. We just got lucky!
+    \end{subsection}
+    \begin{subsection}{Age-wise Death Share Percentage}
+    
+     \begin{figure}[h]
+        \centering
+        \includegraphics[scale = 0.55]{DeathShare_among_young_and_elderly.png}
+        \caption{Death Share among Young and Elderly}
+        \label{fig:Figure 9}
+    \end{figure}
+    
+    \texttt{\newline Observation : Elderly are at the highest risk. And due to the joint family structures in India (contact structure in India),it 
+might be difficult to contain the spread.\newline}
+    \end{subsection}
+    \newline\newline
+    \textbf{So, we've seen so far how many and the age-groups which are affected by this epidemic. But have we faced such a situation before or not?}
+    \newpage
+\end{section}
+
+\begin{section}{Brief Case Study: COVID-19 vs. H1N1}
+
+We will look at:
+\begin{enumerate}
+  \item Total cases for each virus
+  \item Total deaths for each virus
+  \item Mortality rate percentages
+  \item RO - Reproduction Number (No. of people infected from one infected individual)
+\end{enumerate}
+  And compare which one is the deadlier epidemic by measuring mortality rates and giving logical estimates of growth in medical sciences and technology.
+  
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale = 0.6]{Case_Study_h1n1_corona.png}
+        \caption{Case Study Parameters' Plots}
+        \label{fig:Figure 10}
+    \end{figure}
+  \textbf{\newline Conclusion:}
+  \newline
+  There is no doubt that COVID-19 is the deadlier virus among the two because:
+  \newpage
+  \begin{enumerate}
+  \item The world was pretty quick to know that an infection was spreading and started taking preventive measures but this wasn't the case with H1N1 pandemic.
+  \item Every 10 years of time period sees a major advancement in medical sciences and technology in general. We are still not able to save many.
+  \item COVID-19 has evolved over a short span of time. We are seeing asymptomatic cases very frequently. This was not the case with H1N1.
+  \item The plots are screaming it out!
+  \newline
+\end{enumerate}
+\end{section}
+
+\begin{section}{Summary}
+ % Bhai kuch to pel de
+\end{section}
+\end{document}
+
